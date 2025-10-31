@@ -1,4 +1,18 @@
 :root {
+.modal::backdrop { background: #0008; backdrop-filter: blur(2px); }
+.modal-card { width: min(520px, 92vw); background: #0e1530; border: 1px solid #ffffff25; border-radius: 16px; padding: 16px; }
+.modal-card h3 { margin: 0 0 8px; }
+.modal-actions { display:flex; justify-content:flex-end; gap: 8px; margin-top: 12px; }
+.error { color: #ff8a8a; margin-top: 6px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.list li { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #ffffff22; }
+.list small { color: var(--muted); }
+.footer { opacity: .7; text-align: center; padding: 12px 8px; font-size: 13px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px){ .grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px){ .pills { grid-template-columns: 1fr; } .timer { font-size: 34px; } }
+```css
+:root {
 --bg: #0b1020; /* foncé, confortable en OLED */
 --card: #121a33;
 --text: #e6ecff;
