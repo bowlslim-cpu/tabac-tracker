@@ -1,22 +1,4 @@
 <!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TabacTracker</title>
-<meta name="theme-color" content="#0ea5e9" />
-
-
-<!-- PWA manifest + iOS meta -->
-<link rel="manifest" href="manifest.webmanifest" />
-<link rel="apple-touch-icon" href="icons/icon-192.png" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="TabacTracker" />
-
-
-<link rel="stylesheet" href="styles.css" />
-<!-- Chart.js (mis en cache pour usage offline par le SW) -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
 <script src="app.js" defer></script>
 </head>
@@ -59,4 +41,26 @@
 <h2>Historique</h2>
 <div class="row right gap">
 <button id="exportBtn" class="ghost">Exporter</button>
+<label class="ghost file-label">
+Importer JSON
+<input id="importInput" type="file" accept="application/json" hidden />
+</label>
+</div>
+</div>
+<ul id="history" class="list"></ul>
+</section>
+</main>
+
+
+<footer class="footer">Fonctionne hors ligne. Données stockées sur l’appareil.</footer>
+
+
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('./sw.js');
+});
+}
+</script>
+</body>
 </html>
