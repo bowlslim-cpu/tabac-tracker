@@ -25,7 +25,13 @@ h1 {
 
 .stats {
   margin: 20px 0;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+#timer {
+  font-weight: bold;
+  color: #38bdf8;
 }
 
 button {
@@ -56,4 +62,10 @@ button.danger {
 }
 button.danger:hover {
   background: #f87171;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #9ca3af;
 }
