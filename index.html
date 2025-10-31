@@ -1,74 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TabacTracker</title>
-  <meta name="theme-color" content="#0ea5e9" />
-
-  <!-- PWA manifest (optionnel) -->
-  <link rel="manifest" href="manifest.webmanifest" />
-
-  <!-- 🔹 La ligne qui manquait : -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Chart.js puis app.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compteur de cigarettes</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="app.js" defer></script>
 </head>
 <body>
-<header class="appbar">
-  <h1>TabacTracker</h1>
-  <button id="installBtn" class="ghost" hidden>Installer</button>
-</header>
+  <main class="container">
+    <h1>🚭 Compteur de cigarettes</h1>
 
-<main class="container">
-  <section class="card">
-    <h2>Depuis la dernière cigarette</h2>
-    <div id="timer" class="timer">—</div>
+    <div class="stats">
+      <p>Aujourd’hui : <span id="todayCount">0</span></p>
+      <p>Total : <span id="totalCount">0</span></p>
+    </div>
+
     <div class="actions">
-      <button id="addBtn" class="primary">J’ai fumé une cigarette</button>
-      <button id="undoBtn" class="ghost">Annuler la dernière</button>
+      <button id="addBtn" class="primary">+1 cigarette</button>
+      <button id="resetDay" class="ghost">Réinitialiser le jour</button>
+      <button id="resetAll" class="danger">Réinitialiser tout</button>
     </div>
-  </section>
 
-  <section class="pills">
-    <div class="pill"><div class="pill-k">Aujourd’hui</div><div class="pill-v" id="todayCount">0</div></div>
-    <div class="pill"><div class="pill-k">Cette semaine</div><div class="pill-v" id="weekCount">0</div></div>
-    <div class="pill"><div class="pill-k">Total</div><div class="pill-v" id="totalCount">0</div></div>
-  </section>
-
-  <section class="card">
-    <div class="row">
-      <h2>Consommation par semaine</h2>
-      <label class="row right">Semaines: <input id="weeksInput" type="number" min="4" max="52" value="12"/></label>
-    </div>
-    <canvas id="chart" height="220"></canvas>
-  </section>
-
-  <section class="card">
-    <div class="row">
-      <h2>Historique</h2>
-      <div class="row right gap">
-        <button id="exportBtn" class="ghost">Exporter</button>
-        <label class="ghost file-label">
-          Importer JSON
-          <input id="importInput" type="file" accept="application/json" hidden />
-        </label>
-      </div>
-    </div>
-    <ul id="history" class="list"></ul>
-  </section>
-</main>
-
-<footer class="footer">Fonctionne hors ligne. Données stockées sur l’appareil.</footer>
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js');
-    });
-  }
-</script>
+    <footer>
+      <small>Données enregistrées localement dans ton navigateur.</small>
+    </footer>
+  </main>
 </body>
 </html>
