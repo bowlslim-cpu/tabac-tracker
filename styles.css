@@ -1,0 +1,52 @@
+:root {
+--bg: #0b1020; /* foncé, confortable en OLED */
+--card: #121a33;
+--text: #e6ecff;
+--muted: #9fb0ffcc;
+--accent: #0ea5e9; /* cyan */
+--ok: #22c55e; /* vert */
+--warn: #f59e0b; /* ambre */
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+margin: 0; font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+color: var(--text); background: radial-gradient(1200px 800px at 50% -200px,#0a0f26, #060a18 60%, #02040b);
+}
+.appbar {
+position: sticky; top: 0; z-index: 5; backdrop-filter: blur(10px);
+display: flex; align-items: center; justify-content: space-between;
+padding: 12px 16px; background: #0b102088; border-bottom: 1px solid #ffffff1a;
+}
+.appbar h1 { margin: 0; font-size: 20px; }
+.container { max-width: 900px; margin: 0 auto; padding: 16px; }
+.card {
+background: linear-gradient(180deg, #121a33aa, #0e1530ee);
+border: 1px solid #ffffff1a; border-radius: 16px; padding: 16px; margin: 16px 0;
+box-shadow: 0 10px 30px #00000050;
+}
+.row { display: flex; align-items: center; gap: 12px; }
+.right { margin-left: auto; }
+.gap { gap: 8px; }
+.timer { font-size: 40px; font-weight: 700; letter-spacing: 1px; }
+.actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+button {
+appearance: none; border: 1px solid #ffffff30; border-radius: 999px; padding: 10px 14px; cursor: pointer;
+color: var(--text); background: #ffffff08; transition: transform .04s ease, background .2s;
+}
+button:hover { background: #ffffff12; }
+button:active { transform: translateY(1px) scale(0.99); }
+.primary { border-color: transparent; background: linear-gradient(135deg, #0ea5e9, #8b5cf6); font-weight: 700; }
+.ghost { background: #ffffff10; }
+.file-label { display: inline-flex; align-items: center; }
+.pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+.pill {
+background: #ffffff10; border: 1px solid #ffffff20; border-radius: 16px; padding: 10px 12px;
+}
+.pill-k { color: var(--muted); font-size: 12px; }
+.pill-v { font-size: 20px; font-weight: 700; }
+.list { list-style: none; margin: 0; padding: 0; }
+.list li { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #ffffff22; }
+.list small { color: var(--muted); }
+.footer { opacity: .7; text-align: center; padding: 12px 8px; font-size: 13px; }
+@media (max-width: 480px){ .pills { grid-template-columns: 1fr; } .timer { font-size: 34px; } }
