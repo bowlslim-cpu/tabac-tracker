@@ -1,4 +1,4 @@
-const CACHE = 'tabac-v1';
+const CACHE = 'tabac-v3';
 const OFFLINE_FILES = [
 './',
 './index.html',
@@ -34,4 +34,5 @@ caches.open(CACHE).then(c => c.put(req, copy));
 return res;
 }).catch(()=>caches.match('./index.html')))
 );
+
 });
