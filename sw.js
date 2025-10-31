@@ -1,5 +1,5 @@
 // sw.js — update hard
-const CACHE = 'tabac-v100'; // <<< change ce numéro quand tu redéploies
+const CACHE = 'tabac-v101'; // <<< change ce numéro quand tu redéploies
 
 const OFFLINE_FILES = [
   './',
@@ -36,3 +36,4 @@ self.addEventListener('fetch', (e) => {
       .catch(() => caches.match(e.request).then(m => m || caches.match('./index.html')))
   );
 });
+
